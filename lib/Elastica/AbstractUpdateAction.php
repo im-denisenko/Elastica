@@ -255,36 +255,6 @@ class AbstractUpdateAction extends Param
     }
 
     /**
-     * Set percolate query param.
-     *
-     * @param string $value percolator filter
-     *
-     * @return $this
-     */
-    public function setPercolate($value = '*')
-    {
-        return $this->setParam('_percolate', $value);
-    }
-
-    /**
-     * Get percolate parameter.
-     *
-     * @return string
-     */
-    public function getPercolate()
-    {
-        return $this->getParam('_percolate');
-    }
-
-    /**
-     * @return bool
-     */
-    public function hasPercolate()
-    {
-        return $this->hasParam('_percolate');
-    }
-
-    /**
      * Set routing query param.
      *
      * @param string $value routing

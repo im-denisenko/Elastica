@@ -143,7 +143,7 @@ class DocumentTest extends BaseTest
         $this->assertArrayNotHasKey('_id', $options);
         $this->assertArrayNotHasKey('_parent', $options);
 
-        $options = $document->getOptions(array('parent', 'op_type', 'percolate'), true);
+        $options = $document->getOptions(array('parent', 'op_type'), true);
 
         $this->assertInternalType('array', $options);
         $this->assertEquals(2, count($options));
@@ -151,7 +151,6 @@ class DocumentTest extends BaseTest
         $this->assertArrayHasKey('_op_type', $options);
         $this->assertEquals('2', $options['_parent']);
         $this->assertEquals('create', $options['_op_type']);
-        $this->assertArrayNotHasKey('percolate', $options);
         $this->assertArrayNotHasKey('op_type', $options);
         $this->assertArrayNotHasKey('parent', $options);
     }

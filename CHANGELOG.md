@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file based on the
 ### Backward Compatibility Breaks
 - Usage of constant DEBUG and method Elastica\Util::debugEnabled is removed. [#868](https://github.com/ruflin/Elastica/pull/868)
 - Elastica\Response::getTransferInfo will not return "request_header" by default. [#868](https://github.com/ruflin/Elastica/pull/868)
+- Removed methods: AbstractUpdateAction::setPercolate, AbstractUpdateAction::getPercolate, AbstractUpdateAction::hasPercolate [#881](https://github.com/ruflin/Elastica/pull/881)
 
 ### Bugfixes
 - Fixed segmentation fault in PHP7 [#868](https://github.com/ruflin/Elastica/pull/868)
@@ -15,7 +16,7 @@ All notable changes to this project will be documented in this file based on the
 ### Improvements
 - `CallbackStrategy` now will accept any `callable` as callback, not only instance of `Closure`. [#871](https://github.com/ruflin/Elastica/pull/871)
 - `StrategyFactory` now will try to find predefined strategy before looking to global namespace. [#877](https://github.com/ruflin/Elastica/pull/877)
-- Update elasticsearch dependency to elasticsearch 1.6.0 https://www.elastic.co/downloads/past-releases/elasticsearch-1-6-0 
+- Update elasticsearch dependency to elasticsearch 1.6.0 https://www.elastic.co/downloads/past-releases/elasticsearch-1-6-0
 
 
 ## [2.1.0](https://github.com/ruflin/Elastica/releases/tag/2.1.0) - 2015-06-01
