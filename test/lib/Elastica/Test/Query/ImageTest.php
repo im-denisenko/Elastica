@@ -19,6 +19,10 @@ class ImageTest extends BaseTest
     {
         parent::setUp();
         $this->_testFileContent = base64_encode(file_get_contents(BASE_PATH.'/data/test.jpg'));
+
+        if ($this->_isFunctionalGroup()) {
+            $this->markTestSkipped('Query\Image is incompatible with ES 1.6 hence functional tests for this query are disabled');
+        }
     }
 
     /**
