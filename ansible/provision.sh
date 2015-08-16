@@ -6,8 +6,6 @@ install_ansible() {
     sudo apt-get update
     sudo apt-get install python python-pip python-dev -y
     sudo pip install ansible==1.8.2
-    sudo mkdir -p /etc/ansible/
-    echo "localhost" | sudo tee /etc/ansible/hosts
 }
 
 run_playbook() {
@@ -27,7 +25,7 @@ run_playbook() {
         return 1
     fi
 
-    ansible-playbook $ES_PROJECT_ROOT/ansible/es-playbook.yml -v | tee /tmp/ansible-playbook-progress
+    ansible-playbook $ES_PROJECT_ROOT/ansible/playbook.yml -i $ES_PROJECT_ROOT/ansible/inventory.txt -v | tee /tmp/ansible-playbook-progress
 
     if grep -q "FATAL\|ERROR" /tmp/ansible-playbook-progress; then
         return 1
