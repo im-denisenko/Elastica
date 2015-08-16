@@ -2,12 +2,6 @@
 
 set -o xtrace
 
-install_ansible() {
-    apt-get update
-    apt-get install python python-pip python-dev -y
-    pip install ansible==1.9.2
-}
-
 run_playbook() {
     # Write to stdout directly
     export PYTHONUNBUFFERED=1
@@ -53,8 +47,6 @@ travis_retry() {
     echo "The command $@ failed."
     return 1
 }
-
-travis_retry install_ansible || exit 1
 
 travis_retry run_playbook || exit 1
 
