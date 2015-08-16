@@ -2,8 +2,8 @@
 
 set -o xtrace
 
-virtualenv elastica-venv
-source elastica-venv/bin/activate
+virtualenv ./elastica-venv
+source ./elastica-venv/bin/activate
 pip install ansible==1.9.2
 
 run_playbook() {
