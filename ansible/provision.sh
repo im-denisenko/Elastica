@@ -3,9 +3,9 @@
 set -o xtrace
 
 install_ansible() {
-    sudo apt-get update
-    sudo apt-get install python python-pip python-dev -y
-    sudo pip install ansible==1.8.2
+    apt-get update
+    apt-get install python python-pip python-dev -y
+    pip install ansible==1.9.2
 }
 
 run_playbook() {
