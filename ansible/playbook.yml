@@ -1,7 +1,8 @@
 ---
 
 - name: Create a virtual machine
-  hosts: all
+  hosts: localhost
+  connection: local
   vars:
     - ES_VER: "1.7.1"
     - ES_SHORT_VER: "1.7"
