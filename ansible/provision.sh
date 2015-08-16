@@ -18,9 +18,9 @@ run_playbook() {
         export ES_PROJECT_ROOT="$(dirname $(dirname $(readlink -f $0)))"
     fi
 
-    ./elastica-venv/bin/ansible $ES_PROJECT_ROOT/ansible/playbook.yml -i $ES_PROJECT_ROOT/ansible/inventory.txt -v | tee /tmp/ansible-playbook-progress
+    ./elastica-venv/bin/ansible ./playbook.yml -i ./inventory.txt -v | tee ./progress.log
 
-    if grep -q "FATAL\|ERROR" /tmp/ansible-playbook-progress; then
+    if grep -q "FATAL\|ERROR" ./progress.log; then
         return 1
     fi
 }
