@@ -27,6 +27,7 @@ addons:
       - python
       - python-pip
       - python-dev
+      - python-virtualenv
 
 install:
   - /bin/bash ansible/provision.sh
