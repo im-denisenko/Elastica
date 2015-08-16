@@ -21,6 +21,11 @@ matrix:
 #   only:
 #     - master
 
+addons:
+  apt:
+    packages:
+      - ansible
+
 install:
   - /bin/bash ansible/provision.sh
 

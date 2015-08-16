@@ -2,14 +2,6 @@
 
 set -o xtrace
 
-install_ansible() {
-    sudo apt-get update
-    sudo apt-get install python python-pip python-dev -y
-    sudo pip install ansible==1.8.2
-    sudo mkdir -p /etc/ansible/
-    echo "localhost" | sudo tee /etc/ansible/hosts
-}
-
 run_playbook() {
     # Write to stdout directly
     export PYTHONUNBUFFERED=1
@@ -55,8 +47,6 @@ travis_retry() {
     echo "The command $@ failed."
     return 1
 }
-
-travis_retry install_ansible || exit 1
 
 travis_retry run_playbook || exit 1
 
