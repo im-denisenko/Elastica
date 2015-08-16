@@ -2,6 +2,8 @@
 
 set -o xtrace
 
+echo $(which ansible-playbook)
+
 run_playbook() {
     # Write to stdout directly
     export PYTHONUNBUFFERED=1
