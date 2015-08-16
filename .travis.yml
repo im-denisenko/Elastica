@@ -24,7 +24,9 @@ matrix:
 addons:
   apt:
     packages:
-      - ansible
+      - python
+      - python-pip
+      - python-dev
 
 install:
   - /bin/bash ansible/provision.sh

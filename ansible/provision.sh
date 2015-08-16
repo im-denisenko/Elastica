@@ -2,7 +2,9 @@
 
 set -o xtrace
 
-echo $(which ansible-playbook)
+virtualenv elastica-venv
+source elastica-venv/bin/activate
+pip install ansible==1.9.2
 
 run_playbook() {
     # Write to stdout directly
@@ -16,12 +18,7 @@ run_playbook() {
         export ES_PROJECT_ROOT="$(dirname $(dirname $(readlink -f $0)))"
     fi
 
-    if [ ! -x $(which ansible-playbook) ]; then
-        echo "Ansible is not installed"
-        return 1
-    fi
-
-    ansible-playbook $ES_PROJECT_ROOT/ansible/playbook.yml -i $ES_PROJECT_ROOT/ansible/inventory.txt -v | tee /tmp/ansible-playbook-progress
+    ./elastica-venv/bin/ansible $ES_PROJECT_ROOT/ansible/playbook.yml -i $ES_PROJECT_ROOT/ansible/inventory.txt -v | tee /tmp/ansible-playbook-progress
 
     if grep -q "FATAL\|ERROR" /tmp/ansible-playbook-progress; then
         return 1
