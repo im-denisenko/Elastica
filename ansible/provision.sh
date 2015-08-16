@@ -27,7 +27,7 @@ run_playbook() {
         return 1
     fi
 
-    ansible-playbook $ES_PROJECT_ROOT/ansible/es-playbook.yml -v | tee /tmp/ansible-playbook-progress
+    ansible-playbook $ES_PROJECT_ROOT/ansible/playbook.yml -i $ES_PROJECT_ROOT/ansible/inventory.txt -v | tee /tmp/ansible-playbook-progress
 
     if grep -q "FATAL\|ERROR" /tmp/ansible-playbook-progress; then
         return 1
